@@ -14,22 +14,18 @@ import javax.persistence.Table
 data class Producto (
 
         @Id
-//        @Column(name = "UUID")
+        @Column(columnDefinition = "binary(16)")
         val uuid: UUID,
 
-//        @Column(name = "NOMBRE")
+        @Column(unique = true)
         val nombre: String,
 
-//        @Column(name = "SKU")
         val sku: String,
 
-//        @Column(name = "DESCRIPCION")
         val descripcion: String,
 
-//        @Column(name = "PRECIO")
         val precio: BigInteger,
 
-//        @Column(name = "TIPO_PRODUCTO")
         val tipoProducto: String
 ) {
         private constructor(): this(UUID.randomUUID(), "", "", "", BigInteger.valueOf(1), "")

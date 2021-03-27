@@ -13,16 +13,28 @@ import java.util.*
 class DefaultProductoService(val productoRepository: ProductosRepository) : ProductoService {
 
     override fun save(productoDTO: ProductoDTO) {
-        productoRepository.save(Producto(UUID.randomUUID(),
-                productoDTO.nombre,
-                productoDTO.sku,
-                productoDTO.descripcion,
-                BigInteger.valueOf(productoDTO.precio),
-                TipoProductoEstados.PENDIENTE.toString()));
+        productoRepository.save(producto(productoDTO));
     }
 
-//    override fun findProductoByNombre() {
-//        TODO("Not yet implemented")
-//    }
+    override fun findAllProducto(): List<Producto> {
+        return productoRepository.findAll();
+    }
+
+    override fun deleteProductoByUuid(nombre: String) {
+        productoRepository.deleteProductoByUuid(nombre);
+    }
+
+    override fun updateProducto(uuid: UUID, productoDTO: ProductoDTO) {
+        productoRepository.saveAndFlush(producto(productoDTO))
+    }
+
+    private fun producto(productoDTO: ProductoDTO): Producto {
+        return Producto(UUID.randomUUID(),
+            productoDTO.nombre,
+            productoDTO.sku,
+            productoDTO.descripcion,
+            BigInteger.valueOf(productoDTO.precio),
+            TipoProductoEstados.PENDIENTE.toString())
+    }
 
 }
