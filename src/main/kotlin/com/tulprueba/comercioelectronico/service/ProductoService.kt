@@ -13,5 +13,5 @@ interface ProductoService {
 
     fun deleteProductoByUuid(nombre: String)
 
-    fun updateProducto(uuid: UUID, productoDTO: ProductoDTO)
+    fun updateProducto(condicion: String, productoDTO: ProductoDTO)
 }

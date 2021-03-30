@@ -24,8 +24,13 @@ class DefaultProductoService(val productoRepository: ProductosRepository) : Prod
         productoRepository.deleteProductoByUuid(nombre);
     }
 
-    override fun updateProducto(uuid: UUID, productoDTO: ProductoDTO) {
-        productoRepository.saveAndFlush(producto(productoDTO))
+    override fun updateProducto(condicion: String, productoDTO: ProductoDTO) {
+        productoRepository.updateProducto(
+            productoDTO.nombre,
+            productoDTO.sku,
+            productoDTO.descripcion,
+            BigInteger.valueOf(productoDTO.precio),
+            condicion)
     }
 
     private fun producto(productoDTO: ProductoDTO): Producto {
