@@ -7,20 +7,15 @@ import com.tulprueba.comercioelectronico.domain.model.dto.CantidadProductoDTO
 import com.tulprueba.comercioelectronico.domain.model.dto.ResponseCheckout
 import com.tulprueba.comercioelectronico.domain.model.enums.TipoCarritoEstados
 import com.tulprueba.comercioelectronico.domain.model.enums.TipoProductoEstados
-import com.tulprueba.comercioelectronico.exception.CantidadNoCoincideException
 import com.tulprueba.comercioelectronico.infrastructure.repositories.CarritoProductoRepository
 import com.tulprueba.comercioelectronico.infrastructure.repositories.CarritoRepository
 import com.tulprueba.comercioelectronico.infrastructure.repositories.ProductosRepository
 import com.tulprueba.comercioelectronico.service.CarritoProductoService
-import lombok.extern.java.Log
 import lombok.extern.slf4j.Slf4j
 import org.springframework.stereotype.Service
 import java.math.BigInteger
 import java.util.*
-import java.util.function.Predicate
-import java.util.logging.Logger
-import java.util.stream.Stream
-import kotlin.collections.ArrayList
+
 
 @Service
 @Slf4j

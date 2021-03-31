@@ -1,6 +1,5 @@
 package com.tulprueba.comercioelectronico.domain.model
 
-import com.tulprueba.comercioelectronico.domain.model.dto.ProductoDTO
 import java.util.*
 import javax.persistence.*
 

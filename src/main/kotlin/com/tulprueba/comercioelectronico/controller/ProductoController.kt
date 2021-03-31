@@ -2,15 +2,10 @@ package com.tulprueba.comercioelectronico.controller
 
 import com.tulprueba.comercioelectronico.domain.model.Producto
 import com.tulprueba.comercioelectronico.domain.model.dto.ProductoDTO
-import com.tulprueba.comercioelectronico.domain.model.enums.TipoProductoEstados
 import com.tulprueba.comercioelectronico.service.ProductoService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.math.BigInteger
-import java.util.*
-import java.util.stream.Stream
-import javax.websocket.server.PathParam
 
 @RestController
 @RequestMapping("/api/producto")

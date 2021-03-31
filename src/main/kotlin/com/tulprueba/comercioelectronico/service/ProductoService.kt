@@ -2,7 +2,6 @@ package com.tulprueba.comercioelectronico.service
 
 import com.tulprueba.comercioelectronico.domain.model.Producto
 import com.tulprueba.comercioelectronico.domain.model.dto.ProductoDTO
-import java.util.*
 
 
 interface ProductoService {
