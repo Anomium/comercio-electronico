@@ -12,6 +12,7 @@ import com.tulprueba.comercioelectronico.service.CarritoProductoService
 import lombok.extern.java.Log
 import lombok.extern.slf4j.Slf4j
 import org.springframework.stereotype.Service
+import java.math.BigInteger
 import java.util.*
 import java.util.function.Predicate
 import java.util.logging.Logger
@@ -43,9 +44,25 @@ class DefaultCarritoProductoService(val carritoRepository: CarritoRepository,
 
     }
 
-    override fun deleteCarritoProducto(uuid: UUID) {
-        TODO("Not yet implemented")
+    override fun deleteCarritoProducto(nombre: String) {
+        if (validatorExistCarrito()) {
+            var carrito: Carrito = carritoProductoRepository.findCarritoEstadoPendiente()
+
+            if (carrito != null) {
+                var prod: MutableList<Producto> = carrito.listaProducto as MutableList<Producto>;
+                var producto: Optional<Producto> = productoRepository.findProductoByNombre(nombre)
+                if(producto.isPresent) {
+                    prod.remove(producto.get())
+                }
+                carritoProductoRepository.save(Carrito(carrito.uuid, prod, carrito.estado))
+            } else {
+                println("Revise que la cantidad digitada si exista.")
+            }
+
+
+        }
     }
+
 
     fun validatorExistCarrito(): Boolean {
         return carritoRepository.getCarritoValidator() == 1

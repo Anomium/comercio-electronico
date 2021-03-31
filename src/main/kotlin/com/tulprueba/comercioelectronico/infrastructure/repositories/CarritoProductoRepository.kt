@@ -21,9 +21,6 @@ interface CarritoProductoRepository : JpaRepository<Carrito, String>  {
             "WHERE TO_CHAR(CARRITO_UUID) = TO_CHAR(?2)", nativeQuery = true)
     fun updateProducto(producto: List<Producto>, uuid: String)
 
-//    @Transactional
-//    @Modifying
-//    @Query(value = "", nativeQuery = true)
-//    fun updateProducto
+
 
 }

@@ -8,6 +8,6 @@ interface CarritoProductoService {
 
     fun addCarritoProducto(cantidadProductoDTO: CantidadProductoDTO)
 
-    fun deleteCarritoProducto(uuid: UUID)
+    fun deleteCarritoProducto(nombre: String)
 
 }

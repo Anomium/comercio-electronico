@@ -27,4 +27,7 @@ interface ProductosRepository : JpaRepository<Producto, String> {
 
     @Query("SELECT * FROM PRODUCTO WHERE NOMBRE = ?1 AND CANTIDAD >= ?2 AND CANTIDAD <> 0", nativeQuery = true)
     fun findProductoByNombreAndCantidad(nombre: String, cantidad: Int) : Optional<Producto>
+
+    @Query("SELECT * FROM PRODUCTO WHERE NOMBRE = ?1", nativeQuery = true)
+    fun findProductoByNombre(nombre: String) : Optional<Producto>
 }
