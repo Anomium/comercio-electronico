@@ -13,12 +13,12 @@ import java.util.stream.Stream
 import javax.websocket.server.PathParam
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/producto")
 class ProductoController (val productoService: ProductoService) {
 
 
 
-    @PostMapping("/producto/guardar")
+    @PostMapping("/guardar")
     fun saveProducto(@RequestBody productoDTO: ProductoDTO): ResponseEntity<HttpStatus>{
 
         productoService.save(productoDTO);
@@ -26,7 +26,7 @@ class ProductoController (val productoService: ProductoService) {
         return ResponseEntity.ok(HttpStatus.OK)
     }
 
-    @GetMapping("/producto/buscarproducto")
+    @GetMapping("/buscarproducto")
     fun findAll(): ResponseEntity<List<Producto>> {
 
         val producto: List<Producto> = productoService.findAllProducto();
@@ -34,7 +34,7 @@ class ProductoController (val productoService: ProductoService) {
         return ResponseEntity.ok(producto)
     }
 
-    @DeleteMapping("/producto/delete/{nombre}")
+    @DeleteMapping("/delete/{nombre}")
     fun deleteProducto(@PathVariable("nombre", required = true) nombre: String): ResponseEntity<HttpStatus> {
 
         if(nombre.isEmpty())
@@ -45,7 +45,7 @@ class ProductoController (val productoService: ProductoService) {
         return ResponseEntity.ok(HttpStatus.OK)
     }
 
-    @PostMapping("/producto/update/{condicion}")
+    @PostMapping("/update/{condicion}")
     fun updateProducto(
         @RequestBody productoDTO: ProductoDTO,
         @PathVariable("condicion", required = false) condicion: String): ResponseEntity<HttpStatus> {

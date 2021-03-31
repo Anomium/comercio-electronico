@@ -39,7 +39,8 @@ class DefaultProductoService(val productoRepository: ProductosRepository) : Prod
             productoDTO.sku,
             productoDTO.descripcion,
             BigInteger.valueOf(productoDTO.precio),
-            TipoProductoEstados.PENDIENTE.toString())
+            TipoProductoEstados.SIMPLE.toString(),
+            productoDTO.cantidad)
     }
 
 }

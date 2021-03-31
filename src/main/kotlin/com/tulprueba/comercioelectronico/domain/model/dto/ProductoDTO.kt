@@ -6,14 +6,22 @@ import java.util.*
 
 class ProductoDTO (
 
+
+    @JsonProperty("nombre")
     val nombre: String,
 
+    @JsonProperty("sku")
     val sku: String,
 
+    @JsonProperty("descripcion")
     val descripcion: String,
 
-    val precio: Long
+    @JsonProperty("precio")
+    val precio: Long,
+
+    @JsonProperty("cantidad")
+    val cantidad: Int
 
 ){
-    private constructor(): this("", "", "", 1)
+    private constructor(): this(/*UUID.randomUUID(),*/ "", "", "", 1, 1)
 }

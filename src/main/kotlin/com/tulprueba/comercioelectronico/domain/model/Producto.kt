@@ -1,17 +1,12 @@
 package com.tulprueba.comercioelectronico.domain.model
 
-import com.tulprueba.comercioelectronico.domain.model.enums.TipoProductoEstados
-import java.math.BigDecimal
 import java.math.BigInteger
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 //@Table(name = "PRODUCTOS")
-data class Producto (
+data class Producto(
 
         @Id
         @Column(columnDefinition = "binary(16)")
@@ -26,7 +21,10 @@ data class Producto (
 
         val precio: BigInteger,
 
-        val tipoProducto: String
+        val tipoProducto: String,
+
+        @Column(name = "CANTIDAD")
+        var cantidad: Int
 ) {
-        private constructor(): this(UUID.randomUUID(), "", "", "", BigInteger.valueOf(1), "")
+        private constructor(): this(UUID.randomUUID(), "", "", "", BigInteger.valueOf(1), "", 1)
 }

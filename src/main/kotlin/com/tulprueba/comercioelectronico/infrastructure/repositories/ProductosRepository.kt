@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
 import org.springframework.transaction.annotation.Transactional
 import java.math.BigInteger
+import java.util.*
 
 interface ProductosRepository : JpaRepository<Producto, String> {
 
@@ -23,4 +24,7 @@ interface ProductosRepository : JpaRepository<Producto, String> {
             "PRECIO = ?4 " +
             "WHERE NOMBRE = ?5", nativeQuery = true)
     fun updateProducto(nombre: String, sku: String, descripcion: String, precio: BigInteger, condicion: String)
+
+    @Query("SELECT * FROM PRODUCTO WHERE NOMBRE = ?1 AND CANTIDAD >= ?2 AND CANTIDAD <> 0", nativeQuery = true)
+    fun findProductoByNombreAndCantidad(nombre: String, cantidad: Int) : Optional<Producto>
 }
