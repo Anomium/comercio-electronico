@@ -20,8 +20,11 @@ class ProductoDTO (
     val precio: Long,
 
     @JsonProperty("cantidad")
-    val cantidad: Int
+    val cantidad: Int,
+
+    @JsonProperty("tipoProducto")
+    val tipoProducto: String
 
 ){
-    private constructor(): this(/*UUID.randomUUID(),*/ "", "", "", 1, 1)
+    private constructor(): this(/*UUID.randomUUID(),*/ "", "", "", 1, 1, "")
 }

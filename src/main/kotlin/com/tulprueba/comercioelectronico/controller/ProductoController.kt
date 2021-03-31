@@ -55,14 +55,4 @@ class ProductoController (val productoService: ProductoService) {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @GetMapping("/")
-    fun uuid(): List<String> {
-        var asd: List<String> = listOf();
-
-        for (num in 1..15) {
-            asd += arrayListOf(UUID.randomUUID().toString())
-        }
-
-        return asd
-    }
 }

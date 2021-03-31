@@ -20,7 +20,7 @@ class CarritoController(val carritoService: CarritoService) {
         return ResponseEntity.ok(HttpStatus.OK)
     }
 
-    @GetMapping("/buscarproducto")
+    @GetMapping("/buscarCarritos")
     fun findAll(): ResponseEntity<List<Carrito>> {
 
         val carrito: List<Carrito> = carritoService.findAllCarrito();
