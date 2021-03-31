@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.*
 class ProductoCarritoController(val carritoProductoService: CarritoProductoService) {
 
     @PostMapping("/addProducto")
-    fun addProducto(@RequestBody cantidadProductoDTO: CantidadProductoDTO): ResponseEntity<List<Producto>> {
+    fun addProducto(@RequestBody cantidadProductoDTO: CantidadProductoDTO): ResponseEntity<HttpStatus> {
 
         carritoProductoService.addCarritoProducto(cantidadProductoDTO);
 
-        return ResponseEntity.ok(emptyList())
+        return ResponseEntity.ok(HttpStatus.OK)
     }
 
     @DeleteMapping("/delete/{nombre}")
