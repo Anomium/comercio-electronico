@@ -8,3 +8,4 @@ Para poner en funcionamiento el programa en su local, no necesita mas que descar
 ## Construido con 🛠️
 
 * [Kotlin](https://kotlinlang.org/)
+* [H2](https://www.h2database.com/html/main.html)
