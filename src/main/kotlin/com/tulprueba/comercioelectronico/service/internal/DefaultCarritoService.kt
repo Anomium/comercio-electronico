@@ -15,7 +15,7 @@ class DefaultCarritoService(val carritoRepository: CarritoRepository) : CarritoS
             carritoRepository.save(
                 Carrito(
                     UUID.randomUUID(),
-                    arrayListOf(),
+                    "",
                     TipoCarritoEstados.PENDIENTE.toString()
                 )
             )

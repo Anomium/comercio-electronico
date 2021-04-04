@@ -2,8 +2,10 @@ package com.tulprueba.comercioelectronico.domain.model.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-class ProductoDTO (
+data class ProductoDTO (
 
+    @JsonProperty("uuid")
+    val uuid: String?,
 
     @JsonProperty("nombre")
     val nombre: String,
@@ -18,11 +20,11 @@ class ProductoDTO (
     val precio: Long,
 
     @JsonProperty("cantidad")
-    val cantidad: Int,
+    var cantidad: Int,
 
     @JsonProperty("tipoProducto")
     val tipoProducto: String
 
 ){
-    private constructor(): this(/*UUID.randomUUID(),*/ "", "", "", 1, 1, "")
+    private constructor(): this("", "", "", "", 1, 1, "")
 }

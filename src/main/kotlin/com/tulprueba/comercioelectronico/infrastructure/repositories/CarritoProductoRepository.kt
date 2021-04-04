@@ -23,7 +23,7 @@ interface CarritoProductoRepository : JpaRepository<Carrito, String>  {
 
     @Transactional
     @Modifying
-    @Query(value = "UPDATE CARRITOS SET ESTADO = 'COMPLETADO' WHERE TO_CHAR(UUID) = ?1", nativeQuery = true)
+    @Query(value = "UPDATE CARRITOS SET ESTADO = 'COMPLETADO' WHERE to_char(UUID) = ?1", nativeQuery = true)
     fun updateStatusCarrito(uuid: String)
 
 }

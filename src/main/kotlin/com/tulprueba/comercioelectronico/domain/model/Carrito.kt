@@ -1,23 +1,25 @@
 package com.tulprueba.comercioelectronico.domain.model
 
 import java.util.*
-import javax.persistence.*
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.Table
 
 @Entity
 @Table(name = "carritos")
 data class Carrito(
 
         @Id
-        @Column(name = "UUID")
+        @Column(columnDefinition = "binary(16)")
         var uuid: UUID,
 
         @Column(name = "LISTA_PRODUCTOS")
-        @ElementCollection
-        var listaProducto: List<Producto>,
+        var listaProducto: String,
 
         @Column(name = "ESTADO")
         var estado: String
 
 ){
-        private constructor(): this(UUID.randomUUID(), arrayListOf(), "")
+        private constructor(): this(UUID.randomUUID(), "", "")
 }
